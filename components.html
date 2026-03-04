@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Library - Job Notification App</title>
+    <link rel="stylesheet" href="css/design-system.css">
+    <style>
+        .component-showcase {
+            padding: 40px;
+        }
+        .component-section {
+            margin-bottom: 64px;
+        }
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+        .code-example {
+            background: #F7F6F3;
+            border: 1px solid #D9D9D9;
+            border-radius: 4px;
+            padding: 16px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            margin-top: 16px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- TOP BAR -->
+        <header class="top-bar">
+            <div class="top-bar__brand">Component Library</div>
+            <div class="top-bar__progress">Reference Guide</div>
+            <div class="top-bar__status status-shipped">
+                <span>●</span> Complete
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <div class="primary-workspace" style="flex: 0 0 100%;">
+                
+                <div class="context-header">
+                    <h1 class="context-header__title">Component Library</h1>
+                    <p class="context-header__subtitle">
+                        Quick reference for all design system components with copy-paste code examples.
+                    </p>
+                </div>
+
+                <!-- BUTTONS SECTION -->
+                <section class="component-section">
+                    <h2>Buttons</h2>
+                    <div class="component-grid">
+                        <div class="card">
+                            <h3>Primary Button</h3>
+                            <p class="text-small u-mt-2 u-mb-3">For main actions and primary CTAs.</p>
+                            <button class="btn btn--primary">Primary Action</button>
+                            <div class="code-example">
+&lt;button class="btn btn--primary"&gt;
+    Primary Action
+&lt;/button&gt;
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Secondary Button</h3>
+                            <p class="text-small u-mt-2 u-mb-3">For less important or cancel actions.</p>
+                            <button class="btn btn--secondary">Secondary Action</button>
+                            <div class="code-example">
+&lt;button class="btn btn--secondary"&gt;
+    Secondary Action
+&lt;/button&gt;
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Disabled State</h3>
+                            <p class="text-small u-mt-2 u-mb-3">Shows unavailable or inactive state.</p>
+                            <button class="btn btn--primary" disabled>Disabled</button>
+                            <div class="code-example">
+&lt;button class="btn btn--primary" disabled&gt;
+    Disabled
+&lt;/button&gt;
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FORM INPUTS SECTION -->
+                <section class="component-section">
+                    <h2>Form Inputs</h2>
+                    <div class="component-grid">
+                        <div class="card">
+                            <h3>Text Input</h3>
+                            <div class="input-group u-mt-3">
+                                <label class="input-label" for="demo-input">Label</label>
+                                <input type="text" id="demo-input" class="input" placeholder="Enter text">
+                            </div>
+                            <div class="code-example">
+&lt;div class="input-group"&gt;
+    &lt;label class="input-label" for="id"&gt;Label&lt;/label&gt;
+    &lt;input type="text" id="id" class="input" 
+           placeholder="Placeholder"&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Textarea</h3>
+                            <div class="input-group u-mt-3">
+                                <label class="input-label" for="demo-textarea">Message</label>
+                                <textarea id="demo-textarea" class="input" placeholder="Type your message..."></textarea>
+                            </div>
+                            <div class="code-example">
+&lt;div class="input-group"&gt;
+    &lt;label class="input-label" for="id"&gt;Label&lt;/label&gt;
+    &lt;textarea id="id" class="input"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Error State</h3>
+                            <div class="input-group u-mt-3">
+                                <label class="input-label" for="demo-error">Email</label>
+                                <input type="email" id="demo-error" class="input input--error" value="invalid">
+                                <div class="input-error-message">Please enter a valid email address</div>
+                            </div>
+                            <div class="code-example">
+&lt;div class="input-group"&gt;
+    &lt;label class="input-label" for="id"&gt;Label&lt;/label&gt;
+    &lt;input type="text" id="id" 
+           class="input input--error" value="invalid"&gt;
+    &lt;div class="input-error-message"&gt;
+        Error message here
+    &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CARDS SECTION -->
+                <section class="component-section">
+                    <h2>Cards</h2>
+                    <div class="component-grid">
+                        <div class="card">
+                            <h3>Basic Card</h3>
+                            <p class="u-mt-2">Simple card container for grouping content.</p>
+                            <div class="code-example">
+&lt;div class="card"&gt;
+    &lt;h2&gt;Card Title&lt;/h2&gt;
+    &lt;p&gt;Card content&lt;/p&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Card with Hover</h3>
+                            <p class="u-mt-2">Interactive card that responds to hover.</p>
+                            <div class="code-example">
+&lt;div class="card"&gt;
+    &lt;h3&gt;Interactive Card&lt;/h3&gt;
+    &lt;p&gt;Hover over this card&lt;/p&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STATES SECTION -->
+                <section class="component-section">
+                    <h2>Error & Empty States</h2>
+                    <div class="component-grid">
+                        <div class="card">
+                            <h3>Error State</h3>
+                            <div class="error-state u-mt-3">
+                                <div class="error-state__icon">!</div>
+                                <h3 class="error-state__title">Connection Failed</h3>
+                                <p class="error-state__message">
+                                    We couldn't connect to the server. Please check your connection.
+                                </p>
+                                <button class="btn btn--primary">Try Again</button>
+                            </div>
+                            <div class="code-example">
+&lt;div class="error-state"&gt;
+    &lt;div class="error-state__icon"&gt;!&lt;/div&gt;
+    &lt;h3 class="error-state__title"&gt;Title&lt;/h3&gt;
+    &lt;p class="error-state__message"&gt;Message&lt;/p&gt;
+    &lt;button class="btn btn--primary"&gt;Action&lt;/button&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Empty State</h3>
+                            <div class="empty-state u-mt-3">
+                                <div class="empty-state__icon">○</div>
+                                <h3 class="empty-state__title">No Items Yet</h3>
+                                <p class="empty-state__description">
+                                    When items are added, they'll appear here.
+                                </p>
+                                <button class="btn btn--primary">Add Item</button>
+                            </div>
+                            <div class="code-example">
+&lt;div class="empty-state"&gt;
+    &lt;div class="empty-state__icon"&gt;○&lt;/div&gt;
+    &lt;h3 class="empty-state__title"&gt;Title&lt;/h3&gt;
+    &lt;p class="empty-state__description"&gt;Description&lt;/p&gt;
+    &lt;button class="btn btn--primary"&gt;Action&lt;/button&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SPECIALTY COMPONENTS SECTION -->
+                <section class="component-section">
+                    <h2>Specialty Components</h2>
+                    <div class="component-grid">
+                        <div class="card">
+                            <h3>Prompt Box (Copyable)</h3>
+                            <div class="prompt-box u-mt-3">
+                                <div class="prompt-box__header">
+                                    <div class="prompt-box__title">API Key</div>
+                                    <button class="btn btn--secondary prompt-box__copy-btn">Copy</button>
+                                </div>
+                                <div>sk_test_abc123xyz789</div>
+                            </div>
+                            <div class="code-example">
+&lt;div class="prompt-box"&gt;
+    &lt;div class="prompt-box__header"&gt;
+        &lt;div class="prompt-box__title"&gt;Title&lt;/div&gt;
+        &lt;button class="btn btn--secondary 
+           prompt-box__copy-btn"&gt;Copy&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div&gt;Content to copy&lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Step Explanation</h3>
+                            <div class="step-explanation u-mt-3">
+                                <div class="step-explanation__number">1</div>
+                                <h3 class="step-explanation__title">Setup Phase</h3>
+                                <p class="step-explanation__description">
+                                    Configure your initial settings before proceeding to the next step.
+                                </p>
+                            </div>
+                            <div class="code-example">
+&lt;div class="step-explanation"&gt;
+    &lt;div class="step-explanation__number"&gt;1&lt;/div&gt;
+    &lt;h3 class="step-explanation__title"&gt;Title&lt;/h3&gt;
+    &lt;p class="step-explanation__description"&gt;
+        Description text
+    &lt;/p&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Status Badge</h3>
+                            <div style="display: flex; gap: 16px; margin-top: 16px;">
+                                <div class="top-bar__status status-not-started">
+                                    <span>○</span> Not Started
+                                </div>
+                                <div class="top-bar__status status-in-progress">
+                                    <span>◐</span> In Progress
+                                </div>
+                                <div class="top-bar__status status-shipped">
+                                    <span>●</span> Shipped
+                                </div>
+                            </div>
+                            <div class="code-example">
+&lt;div class="top-bar__status status-not-started"&gt;
+    &lt;span&gt;○&lt;/span&gt; Not Started
+&lt;/div&gt;
+
+&lt;div class="top-bar__status status-in-progress"&gt;
+    &lt;span&gt;◐&lt;/span&gt; In Progress
+&lt;/div&gt;
+
+&lt;div class="top-bar__status status-shipped"&gt;
+    &lt;span&gt;●&lt;/span&gt; Shipped
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TYPOGRAPHY SECTION -->
+                <section class="component-section">
+                    <h2>Typography</h2>
+                    <div class="card">
+                        <h3>Heading Styles</h3>
+                        <div class="u-mt-3">
+                            <h1>Heading 1 - Premium SaaS Experience</h1>
+                            <p class="u-mt-3 u-mb-3"><strong>Size:</strong> 48px | <strong>Font:</strong> Serif</p>
+                            
+                            <h2 class="u-mt-4">Heading 2 - Design Principles</h2>
+                            <p class="u-mt-3 u-mb-3"><strong>Size:</strong> 40px | <strong>Font:</strong> Serif</p>
+                            
+                            <h3 class="u-mt-4">Heading 3 - Color System</h3>
+                            <p class="u-mt-3 u-mb-3"><strong>Size:</strong> 32px | <strong>Font:</strong> Serif</p>
+                            
+                            <h4 class="u-mt-4">Heading 4 - Spacing Scale</h4>
+                            <p class="u-mt-3 u-mb-3"><strong>Size:</strong> 24px | <strong>Font:</strong> Serif</p>
+                        </div>
+                        
+                        <h3 class="u-mt-4">Body Text</h3>
+                        <div class="u-mt-3">
+                            <p>This is body text at 18px with a line-height of 1.8. It's designed for optimal readability in long-form content. The max-width is limited to 720px to prevent eye strain.</p>
+                            <p class="u-mt-3"><strong>Size:</strong> 18px | <strong>Line-height:</strong> 1.8 | <strong>Font:</strong> Sans-serif</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PROOF FOOTER SECTION -->
+                <section class="component-section">
+                    <h2>Proof Footer</h2>
+                    <div class="card">
+                        <h3>Implementation Checklist</h3>
+                        <footer class="proof-footer u-mt-3">
+                            <div class="proof-footer__title">IMPLEMENTATION CHECKLIST</div>
+                            <ul class="proof-list">
+                                <li class="proof-item">
+                                    <span class="proof-checkbox checked">✓</span>
+                                    <span>UI Built</span>
+                                </li>
+                                <li class="proof-item">
+                                    <span class="proof-checkbox checked">✓</span>
+                                    <span>Logic Working</span>
+                                </li>
+                                <li class="proof-item">
+                                    <span class="proof-checkbox"></span>
+                                    <span>Test Passed</span>
+                                </li>
+                                <li class="proof-item">
+                                    <span class="proof-checkbox"></span>
+                                    <span>Deployed</span>
+                                </li>
+                            </ul>
+                        </footer>
+                        <div class="code-example">
+&lt;footer class="proof-footer"&gt;
+    &lt;div class="proof-footer__title"&gt;
+        IMPLEMENTATION CHECKLIST
+    &lt;/div&gt;
+    &lt;ul class="proof-list"&gt;
+        &lt;li class="proof-item"&gt;
+            &lt;span class="proof-checkbox checked"&gt;✓&lt;/span&gt;
+            &lt;span&gt;Item Text&lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/footer&gt;
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/design-system.js"></script>
+</body>
+</html>
