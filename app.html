@@ -134,49 +134,98 @@
         <!-- MAIN CONTENT (ROUTE VIEWS) -->
         <main class="main-content">
 
+            <!-- Landing Route -->
+            <section id="route-landing" class="route-view active">
+                <div class="placeholder-page" style="text-align: center; padding-top: var(--space-5);">
+                    <h1 style="font-size: var(--text-3xl); margin-bottom: var(--space-3);">Stop Missing The Right Jobs.
+                    </h1>
+                    <p style="font-size: var(--text-lg); margin-bottom: var(--space-4);">Precision-matched job discovery
+                        delivered daily at 9AM.</p>
+                    <a href="/settings" class="btn btn--primary routing-link" data-route="/settings"
+                        style="font-size: var(--text-lg); padding: var(--space-3) var(--space-4);">Start Tracking</a>
+                </div>
+            </section>
+
             <!-- Dashboard Route -->
-            <section id="route-dashboard" class="route-view active">
-                <div class="placeholder-page">
-                    <h1>Dashboard</h1>
-                    <p>This section will be built in the next step.</p>
+            <section id="route-dashboard" class="route-view">
+                <div class="empty-state"
+                    style="max-width: var(--max-width-text); margin: 0 auto; margin-top: var(--space-5);">
+                    <div class="empty-state__icon">○</div>
+                    <h3 class="empty-state__title">No jobs yet</h3>
+                    <p class="empty-state__description">In the next step, you will load a realistic dataset.</p>
                 </div>
             </section>
 
             <!-- Saved Route -->
             <section id="route-saved" class="route-view">
-                <div class="placeholder-page">
-                    <h1>Saved</h1>
-                    <p>This section will be built in the next step.</p>
+                <div class="empty-state"
+                    style="max-width: var(--max-width-text); margin: 0 auto; margin-top: var(--space-5);">
+                    <div class="empty-state__icon">○</div>
+                    <h3 class="empty-state__title">No Saved Jobs</h3>
+                    <p class="empty-state__description">Jobs you save for later will appear here.</p>
                 </div>
             </section>
 
             <!-- Digest Route -->
             <section id="route-digest" class="route-view">
-                <div class="placeholder-page">
-                    <h1>Digest</h1>
-                    <p>This section will be built in the next step.</p>
+                <div class="empty-state"
+                    style="max-width: var(--max-width-text); margin: 0 auto; margin-top: var(--space-5);">
+                    <div class="empty-state__icon">○</div>
+                    <h3 class="empty-state__title">Daily Digest</h3>
+                    <p class="empty-state__description">Your precision-matched daily summary will appear here. Feature
+                        coming soon.</p>
                 </div>
             </section>
 
             <!-- Settings Route -->
             <section id="route-settings" class="route-view">
-                <div class="placeholder-page">
-                    <h1>Settings</h1>
-                    <p>This section will be built in the next step.</p>
+                <div class="card" style="max-width: var(--max-width-text); margin: 0 auto; margin-top: var(--space-5);">
+                    <h2 class="u-mb-4">Notification Preferences</h2>
+
+                    <div class="input-group u-mb-3">
+                        <label class="input-label" for="pref-role">Role keywords</label>
+                        <input type="text" id="pref-role" class="input" placeholder="e.g. Frontend Engineer, React">
+                    </div>
+
+                    <div class="input-group u-mb-3">
+                        <label class="input-label" for="pref-location">Preferred locations</label>
+                        <input type="text" id="pref-location" class="input" placeholder="e.g. New York, London, Remote">
+                    </div>
+
+                    <div class="input-group u-mb-3">
+                        <label class="input-label" for="pref-mode">Mode</label>
+                        <select id="pref-mode" class="input">
+                            <option>Remote</option>
+                            <option>Hybrid</option>
+                            <option>Onsite</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group u-mb-4">
+                        <label class="input-label" for="pref-exp">Experience level</label>
+                        <select id="pref-exp" class="input">
+                            <option>Junior</option>
+                            <option>Mid-Level</option>
+                            <option>Senior</option>
+                            <option>Staff/Principal</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn--primary">Save Preferences</button>
                 </div>
             </section>
 
             <!-- Proof Route -->
             <section id="route-proof" class="route-view">
-                <div class="placeholder-page">
+                <div class="placeholder-page" style="margin-top: var(--space-5);">
                     <h1>Proof</h1>
-                    <p>This section will be built in the next step.</p>
+                    <p>Artifact collection and verification steps will be displayed here.</p>
                 </div>
             </section>
 
             <!-- 404 Route -->
             <section id="route-404" class="route-view">
-                <div class="placeholder-page">
+                <div class="placeholder-page" style="text-align: center; margin-top: var(--space-5);">
                     <h1>Page Not Found</h1>
                     <p>The page you are looking for does not exist.</p>
                 </div>
@@ -190,6 +239,7 @@
         // Simple Client-Side Router
         document.addEventListener('DOMContentLoaded', () => {
             const navLinks = document.querySelectorAll('.nav-link');
+            const routingLinks = document.querySelectorAll('.nav-link, .routing-link');
             const routeViews = document.querySelectorAll('.route-view');
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const mobileNavPanel = document.querySelector('.mobile-nav-panel');
@@ -201,7 +251,7 @@
 
             // Map paths to view IDs
             const routeMap = {
-                '/': 'route-dashboard',
+                '/': 'route-landing',
                 '/dashboard': 'route-dashboard',
                 '/saved': 'route-saved',
                 '/digest': 'route-digest',
@@ -222,9 +272,8 @@
                 // Update active links
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    // Treat Dashboard as both / and /dashboard
                     const linkRoute = link.getAttribute('data-route');
-                    if (linkRoute === path || (path === '/dashboard' && linkRoute === '/')) {
+                    if (linkRoute === path) {
                         link.classList.add('active');
                     }
                 });
@@ -244,7 +293,7 @@
             }
 
             // Handle link clicks
-            navLinks.forEach(link => {
+            routingLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const path = link.getAttribute('data-route');
