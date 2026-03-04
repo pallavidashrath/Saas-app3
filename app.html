@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Notification App</title>
+    <link rel="stylesheet" href="css/design-system.css">
+    <style>
+        /* Specific adjustments for the App Shell based on the rules */
+        .app-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-text-primary);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            padding: var(--space-1) 0;
+            border-bottom: 2px solid transparent;
+            transition: color var(--transition-fast) var(--transition-easing);
+        }
+
+        .nav-link:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-link.active {
+            border-bottom: 2px solid #8B0000;
+            color: #8B0000;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--color-text-primary);
+        }
+
+        .mobile-nav-panel {
+            display: none;
+            flex-direction: column;
+            gap: var(--space-2);
+            position: absolute;
+            top: var(--top-bar-height);
+            left: 0;
+            right: 0;
+            background: var(--color-background);
+            padding: var(--space-3);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 99;
+        }
+
+        .mobile-nav-panel.open {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .app-nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        /* Route Container */
+        .route-view {
+            display: none;
+            width: 100%;
+        }
+
+        .route-view.active {
+            display: block;
+        }
+
+        /* Placeholder Content Styling */
+        .placeholder-page {
+            max-width: var(--max-width-text);
+            margin: 0 auto;
+            text-align: left;
+            padding-top: var(--space-5);
+        }
+
+        .placeholder-page h1 {
+            margin-bottom: var(--space-2);
+        }
+
+        .placeholder-page p {
+            opacity: 0.6;
+            margin-top: 0;
+        }
+
+        /* Center content instead of 70/30 split for these simple shells */
+        .main-content {
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- TOP NAVIGATION BAR -->
+        <header class="top-bar">
+            <div class="top-bar__brand">Job Notification App</div>
+
+            <nav class="app-nav">
+                <a href="/" class="nav-link active" data-route="/">Dashboard</a>
+                <a href="/saved" class="nav-link" data-route="/saved">Saved</a>
+                <a href="/digest" class="nav-link" data-route="/digest">Digest</a>
+                <a href="/settings" class="nav-link" data-route="/settings">Settings</a>
+                <a href="/proof" class="nav-link" data-route="/proof">Proof</a>
+            </nav>
+
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+        </header>
+
+        <!-- MOBILE NAVIGATION PANEL -->
+        <nav class="mobile-nav-panel">
+            <a href="/" class="nav-link active" data-route="/">Dashboard</a>
+            <a href="/saved" class="nav-link" data-route="/saved">Saved</a>
+            <a href="/digest" class="nav-link" data-route="/digest">Digest</a>
+            <a href="/settings" class="nav-link" data-route="/settings">Settings</a>
+            <a href="/proof" class="nav-link" data-route="/proof">Proof</a>
+        </nav>
+
+        <!-- MAIN CONTENT (ROUTE VIEWS) -->
+        <main class="main-content">
+
+            <!-- Dashboard Route -->
+            <section id="route-dashboard" class="route-view active">
+                <div class="placeholder-page">
+                    <h1>Dashboard</h1>
+                    <p>This section will be built in the next step.</p>
+                </div>
+            </section>
+
+            <!-- Saved Route -->
+            <section id="route-saved" class="route-view">
+                <div class="placeholder-page">
+                    <h1>Saved</h1>
+                    <p>This section will be built in the next step.</p>
+                </div>
+            </section>
+
+            <!-- Digest Route -->
+            <section id="route-digest" class="route-view">
+                <div class="placeholder-page">
+                    <h1>Digest</h1>
+                    <p>This section will be built in the next step.</p>
+                </div>
+            </section>
+
+            <!-- Settings Route -->
+            <section id="route-settings" class="route-view">
+                <div class="placeholder-page">
+                    <h1>Settings</h1>
+                    <p>This section will be built in the next step.</p>
+                </div>
+            </section>
+
+            <!-- Proof Route -->
+            <section id="route-proof" class="route-view">
+                <div class="placeholder-page">
+                    <h1>Proof</h1>
+                    <p>This section will be built in the next step.</p>
+                </div>
+            </section>
+
+            <!-- 404 Route -->
+            <section id="route-404" class="route-view">
+                <div class="placeholder-page">
+                    <h1>Page Not Found</h1>
+                    <p>The page you are looking for does not exist.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/design-system.js"></script>
+    <script>
+        // Simple Client-Side Router
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const routeViews = document.querySelectorAll('.route-view');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileNavPanel = document.querySelector('.mobile-nav-panel');
+
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNavPanel.classList.toggle('open');
+            });
+
+            // Map paths to view IDs
+            const routeMap = {
+                '/': 'route-dashboard',
+                '/dashboard': 'route-dashboard',
+                '/saved': 'route-saved',
+                '/digest': 'route-digest',
+                '/settings': 'route-settings',
+                '/proof': 'route-proof'
+            };
+
+            function navigateTo(path) {
+                // Determine target view
+                const targetViewId = routeMap[path] || 'route-404';
+
+                // Handle navigation without reload
+                history.pushState(null, '', path);
+                updateUI(path, targetViewId);
+            }
+
+            function updateUI(path, viewId) {
+                // Update active links
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    // Treat Dashboard as both / and /dashboard
+                    const linkRoute = link.getAttribute('data-route');
+                    if (linkRoute === path || (path === '/dashboard' && linkRoute === '/')) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Update visible views
+                routeViews.forEach(view => {
+                    view.classList.remove('active');
+                });
+
+                const targetViewElement = document.getElementById(viewId);
+                if (targetViewElement) {
+                    targetViewElement.classList.add('active');
+                }
+
+                // Close mobile menu if open
+                mobileNavPanel.classList.remove('open');
+            }
+
+            // Handle link clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const path = link.getAttribute('data-route');
+                    navigateTo(path);
+                });
+            });
+
+            // Handle back/forward browser buttons
+            window.addEventListener('popstate', () => {
+                const path = window.location.pathname;
+                const viewId = routeMap[path] || 'route-404';
+                updateUI(path, viewId);
+            });
+
+            // Initial load resolution
+            const initialPath = window.location.pathname;
+            const initialViewId = routeMap[initialPath] || 'route-404';
+            updateUI(initialPath, initialViewId);
+        });
+    </script>
+</body>
+
+</html>
